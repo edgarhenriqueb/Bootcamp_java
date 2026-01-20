@@ -6,7 +6,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        // Arrays com capacidade para 100 funcionários
+        // vetores com capacidade para 100 funcionários
         int[] ids = new int[100];
         String[] nomes = new String[100];
         String[] cpfs = new String[100];
@@ -27,7 +27,7 @@ public class Main {
             opcao = sc.nextInt();
             sc.nextLine();
 
-            // função de cadastro
+            // função de cadastro de funcionarios
             if (opcao == 1) {
 
                 if (total >= 100) {
@@ -78,7 +78,7 @@ public class Main {
                     System.out.println("Funcionário cadastrado com sucesso!");
                 }
 
-                // metodo de consulta
+                // metodo de consulta de funcionarios
             } else if (opcao == 2) {
 
                 if (total == 0) {
@@ -135,7 +135,7 @@ public class Main {
                     System.out.println("Funcionário não encontrado.");
                 }
 
-                // EXCLUIR
+                // Metodo de exclusão de funcionario
             } else if (opcao == 4) {
 
                 System.out.print("Digite o ID do funcionário: ");
@@ -164,7 +164,7 @@ public class Main {
                 if (!removido) {
                     System.out.println("Funcionário não encontrado.");
                 }
-
+// função de finalização de sistema
             } else if (opcao == 0) {
                 System.out.println("Saindo do sistema...");
             } else {
