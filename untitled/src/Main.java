@@ -42,7 +42,7 @@ public class Main {
                         for (int i = 0; i < total; i++) {
                             if (funcionarios[i].getId() == novoId) {
                                 idDuplicado = true;
-                                System.out.println("❌ ID já existente.");
+                                System.out.println("ID já existente.");
                                 break;
                             }
                         }
