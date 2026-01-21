@@ -1,3 +1,5 @@
+package untitled.src;
+
 import java.util.Scanner;
 
 public class Main {
@@ -6,13 +8,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        // Arrays com capacidade para 100 funcionários
-        int[] ids = new int[100];
-        String[] nomes = new String[100];
-        String[] cpfs = new String[100];
-        boolean[] ativos = new boolean[100];
-        String[] cargos = new String[100];
-
+        Funcionario[] funcionarios = new Funcionario[100];
         int total = 0;
         int opcao;
 
@@ -27,7 +23,7 @@ public class Main {
             opcao = sc.nextInt();
             sc.nextLine();
 
-            // função de cadastro
+            // CADASTRAR
             if (opcao == 1) {
 
                 if (total >= 100) {
@@ -43,42 +39,41 @@ public class Main {
                         sc.nextLine();
 
                         idDuplicado = false;
-
                         for (int i = 0; i < total; i++) {
-                            if (ids[i] == novoId) {
+                            if (funcionarios[i].getId() == novoId) {
                                 idDuplicado = true;
-                                System.out.println("❌ ID já existente. Por favor, utilize outro ID.");
+                                System.out.println("❌ ID já existente.");
                                 break;
                             }
                         }
-
                     } while (idDuplicado);
 
-                    ids[total] = novoId;
-
                     System.out.print("Nome: ");
-                    nomes[total] = sc.nextLine();
+                    String nome = sc.nextLine();
 
                     System.out.print("CPF (somente números): ");
                     String cpf = sc.nextLine();
-                    cpfs[total] = cpf.substring(0, 3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6, 9) + "-" + cpf.substring(9);
+                    cpf = cpf.substring(0, 3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6, 9) + "-" + cpf.substring(9);
 
                     System.out.print("Funcionário ativo? (true/false): ");
-                    ativos[total] = sc.nextBoolean();
+                    boolean ativo = sc.nextBoolean();
                     sc.nextLine();
 
-                    if (ativos[total]) {
+                    String cargo;
+                    if (ativo) {
                         System.out.print("Cargo: ");
-                        cargos[total] = sc.nextLine();
+                        cargo = sc.nextLine();
                     } else {
-                        cargos[total] = "Sem cargo";
+                        cargo = "Sem cargo";
                     }
 
+                    funcionarios[total] = new Funcionario(novoId, nome, cpf, ativo, cargo);
                     total++;
+
                     System.out.println("Funcionário cadastrado com sucesso!");
                 }
 
-                // metodo de consulta
+                // CONSULTAR
             } else if (opcao == 2) {
 
                 if (total == 0) {
@@ -86,16 +81,11 @@ public class Main {
                 } else {
                     System.out.println("\n--- LISTA DE FUNCIONÁRIOS ---");
                     for (int i = 0; i < total; i++) {
-                        System.out.println("ID: " + ids[i]);
-                        System.out.println("Nome: " + nomes[i]);
-                        System.out.println("CPF: " + cpfs[i]);
-                        System.out.println("Ativo: " + ativos[i]);
-                        System.out.println("Cargo: " + cargos[i]);
-                        System.out.println("---------------------------");
+                        funcionarios[i].exibir();
                     }
                 }
 
-                // metodo para atualizar os funcionarios
+                // ATUALIZAR
             } else if (opcao == 3) {
 
                 System.out.print("Digite o ID do funcionário: ");
@@ -105,24 +95,26 @@ public class Main {
                 boolean encontrado = false;
 
                 for (int i = 0; i < total; i++) {
-                    if (ids[i] == idBusca) {
+                    if (funcionarios[i].getId() == idBusca) {
 
                         System.out.print("Novo nome: ");
-                        nomes[i] = sc.nextLine();
+                        funcionarios[i].setNome(sc.nextLine());
 
                         System.out.print("Novo CPF (somente números): ");
                         String cpfNovo = sc.nextLine();
-                        cpfs[i] = cpfNovo.substring(0, 3) + "." + cpfNovo.substring(3, 6) + "." + cpfNovo.substring(6, 9) + "-" + cpfNovo.substring(9);
+                        cpfNovo = cpfNovo.substring(0, 3) + "." + cpfNovo.substring(3, 6) + "." + cpfNovo.substring(6, 9) + "-" + cpfNovo.substring(9);
+                        funcionarios[i].setCpf(cpfNovo);
 
                         System.out.print("Funcionário ativo? (true/false): ");
-                        ativos[i] = sc.nextBoolean();
+                        boolean ativo = sc.nextBoolean();
                         sc.nextLine();
+                        funcionarios[i].setAtivo(ativo);
 
-                        if (ativos[i]) {
+                        if (ativo) {
                             System.out.print("Novo cargo: ");
-                            cargos[i] = sc.nextLine();
+                            funcionarios[i].setCargo(sc.nextLine());
                         } else {
-                            cargos[i] = "Sem cargo";
+                            funcionarios[i].setCargo("Sem cargo");
                         }
 
                         encontrado = true;
@@ -144,18 +136,16 @@ public class Main {
                 boolean removido = false;
 
                 for (int i = 0; i < total; i++) {
-                    if (ids[i] == idExcluir) {
+                    if (funcionarios[i].getId() == idExcluir) {
 
                         for (int j = i; j < total - 1; j++) {
-                            ids[j] = ids[j + 1];
-                            nomes[j] = nomes[j + 1];
-                            cpfs[j] = cpfs[j + 1];
-                            ativos[j] = ativos[j + 1];
-                            cargos[j] = cargos[j + 1];
+                            funcionarios[j] = funcionarios[j + 1];
                         }
 
+                        funcionarios[total - 1] = null;
                         total--;
                         removido = true;
+
                         System.out.println("Funcionário excluído com sucesso!");
                         break;
                     }
