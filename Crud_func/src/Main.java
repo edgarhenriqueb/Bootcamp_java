@@ -23,7 +23,7 @@ public class Main {
             opcao = sc.nextInt();
             sc.nextLine();
 
-            // CADASTRAR
+            // Metodo de cadastro
             if (opcao == 1) {
 
                 if (total >= 100) {
@@ -73,7 +73,7 @@ public class Main {
                     System.out.println("Funcionário cadastrado com sucesso!");
                 }
 
-                // CONSULTAR
+                // metodo utilizado para consulta
             } else if (opcao == 2) {
 
                 if (total == 0) {
@@ -85,7 +85,7 @@ public class Main {
                     }
                 }
 
-                // ATUALIZAR
+                // metodo de atualização de funcionario
             } else if (opcao == 3) {
 
                 System.out.print("Digite o ID do funcionário: ");
@@ -127,7 +127,7 @@ public class Main {
                     System.out.println("Funcionário não encontrado.");
                 }
 
-                // EXCLUIR
+                // metodo de exclusão de funcionario
             } else if (opcao == 4) {
 
                 System.out.print("Digite o ID do funcionário: ");
