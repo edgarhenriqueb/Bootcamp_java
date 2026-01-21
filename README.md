@@ -1,56 +1,78 @@
-# Sistema CRUD de Funcionários em Java
+# Bootcamp Java
 
-## Descrição do Projeto
+Este repositório contém as atividades práticas desenvolvidas durante um Bootcamp de Java, com foco no aprendizado da linguagem, Programação Orientada a Objetos (POO) e aplicação prática por meio de um projeto CRUD executado via terminal.
 
-Este projeto consiste no desenvolvimento de um sistema CRUD (Create, Read, Update e Delete) em Java, executado por meio do terminal. O sistema tem como finalidade o gerenciamento de funcionários de uma empresa, permitindo o cadastro, a consulta, a atualização e a exclusão de registros.
+O objetivo principal deste repositório é consolidar os conceitos fundamentais da linguagem Java por meio de exercícios e projetos práticos desenvolvidos ao longo do bootcamp.
 
+## Estrutura do Repositório
 
+O repositório está organizado da seguinte forma:
 
----
+```text
+Bootcamp_java/
+├── Atv_poo/
+├── Crud_func/
+├── out/
+└── README.md
+```
 
-## Funcionalidades
+## Descrição das Pastas
 
-O sistema disponibiliza um menu interativo com as seguintes opções:
+### Atv_poo
 
-- Cadastro de funcionários, contendo:
-  - Identificador único (ID)
-  - Nome
-  - CPF (informado apenas com números e formatado automaticamente)
-  - Status do funcionário (ativo ou inativo)
-  - Cargo (apenas para funcionários ativos)
+A pasta Atv_poo contém atividades voltadas especificamente para o estudo de Programação Orientada a Objetos em Java.
 
-- Consulta de funcionários cadastrados
-- Atualização dos dados de um funcionário por meio do ID
-- Exclusão de funcionários utilizando o ID
-- Encerramento do sistema
+Os principais conceitos abordados incluem:  
+- Criação e utilização de classes e objetos  
+- Encapsulamento  
+- Construtores  
+- Métodos  
+- Organização e estruturação do código  
+- Boas práticas iniciais em Programação Orientada a Objetos  
 
----
+Essas atividades têm como finalidade fortalecer a base conceitual necessária para o desenvolvimento de aplicações em Java.
 
-## Regras de Negócio
+### Crud_func
 
-- O sistema suporta o cadastro de até 100 funcionários
-- Não é permitido o cadastro de funcionários com IDs duplicados
-- Funcionários inativos recebem automaticamente o cargo "Sem cargo"
-- O CPF deve ser informado apenas com números
-- O CPF é formatado automaticamente no padrão XXX.XXX.XXX-XX
+A pasta Crud_func contém um projeto de CRUD de funcionários totalmente funcional, executado por meio do terminal do usuário.
 
----
+As funcionalidades implementadas incluem:  
+- Cadastro de funcionários  
+- Listagem de funcionários  
+- Atualização de dados de funcionários  
+- Remoção de funcionários  
+- Menu interativo no terminal  
+
+Este projeto aplica de forma prática conceitos fundamentais da linguagem Java, como Programação Orientada a Objetos, estruturas de controle, uso de coleções, organização de código e interação com o usuário via console.
+
+### out
+
+Diretório gerado automaticamente pelo ambiente de desenvolvimento, contendo arquivos compilados do projeto.
+
+## Como Executar os Projetos
+
+### Pré-requisitos
+
+- Java Development Kit (JDK) versão 8 ou superior  
+- Uma IDE Java (IntelliJ IDEA, Eclipse ou VS Code) ou terminal configurado com Java  
+
+A execução dos projetos pode ser realizada via IDE ou diretamente pelo terminal. O nome da classe principal pode variar de acordo com o projeto.
+
+## Objetivo do Repositório
+
+Os principais objetivos deste repositório são:  
+- Praticar lógica de programação utilizando Java  
+- Consolidar conceitos de Programação Orientada a Objetos  
+- Desenvolver um CRUD funcional em ambiente de console  
+- Simular aplicações reais durante o processo de aprendizado  
 
 ## Tecnologias Utilizadas
 
-- Java
-- java.util.Scanner
-- Execução via terminal
+- Java  
+- Programação Orientada a Objetos  
+- Execução via terminal  
 
----
+## Autor
 
-## Como Executar o Projeto
-
-1. Certifique-se de que o Java JDK esteja instalado no sistema
-2. Salve o arquivo principal como `Main.java`
-3. Abra o terminal na pasta do projeto
-4. Compile o código com o comando:
-   ```bash
-   javac Main.java
-
-
+Edgar Henrique  
+Bootcamp Java
