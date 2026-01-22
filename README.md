@@ -1,49 +1,63 @@
 # Bootcamp Java
 
-Este repositório contém as atividades práticas desenvolvidas durante um Bootcamp de Java, com foco no aprendizado da linguagem, Programação Orientada a Objetos (POO) e aplicação prática por meio de um projeto CRUD executado via terminal.
+Este repositório reúne as atividades práticas desenvolvidas durante um Bootcamp de Java, com foco no aprendizado da linguagem, Programação Orientada a Objetos (POO) e aplicação prática por meio de projetos de console, incluindo um CRUD de funcionários e exercícios de POO.
 
-O objetivo principal deste repositório é consolidar os conceitos fundamentais da linguagem Java por meio de exercícios e projetos práticos desenvolvidos ao longo do bootcamp.
+O objetivo principal é consolidar os conceitos fundamentais da linguagem Java por meio de exercícios e projetos práticos, permitindo ao usuário praticar lógica de programação, estruturas de controle e manipulação de objetos.
 
 ## Estrutura do Repositório
 
-O repositório está organizado da seguinte forma:
-
 ```text
 Bootcamp_java/
-├── Atv_poo/
-├── Crud_func/
-├── out/
-└── README.md
+├── Atv_poo/       # Exercícios de POO (Pessoa, Jogador de Futebol, Elevador)
+├── Crud_func/     # Projeto CRUD de funcionários via terminal
+├── out/           # Arquivos compilados gerados pelo ambiente de desenvolvimento
+└── README.md      # Este arquivo
 ```
-
 ## Descrição das Pastas
 
 ### Atv_poo
 
-A pasta Atv_poo contém atividades voltadas especificamente para o estudo de Programação Orientada a Objetos em Java.
+Esta pasta contém atividades voltadas para Programação Orientada a Objetos em Java.  
+Os exercícios abordam os seguintes conceitos:
 
-Os principais conceitos abordados incluem:  
 - Criação e utilização de classes e objetos  
 - Encapsulamento  
 - Construtores  
-- Métodos  
+- Métodos e manipulação de atributos  
 - Organização e estruturação do código  
-- Boas práticas iniciais em Programação Orientada a Objetos  
+- Boas práticas em POO  
 
-Essas atividades têm como finalidade fortalecer a base conceitual necessária para o desenvolvimento de aplicações em Java.
+As atividades incluem:
+
+1. **Cadastro de Pessoa**  
+   Permite registrar uma pessoa com nome, data de nascimento e altura, exibindo informações formatadas.
+
+2. **Cadastro de Jogador de Futebol**  
+   Permite registrar um jogador com nome, posição, data de nascimento, nacionalidade, altura e peso, exibindo todas as informações.
+
+3. **Simulação de Elevador**  
+   Controla um elevador em um prédio, permitindo entrar e sair pessoas, subir e descer andares e exibir o status atual do elevador.
+
+Esses exercícios fortalecem a base conceitual necessária para desenvolver aplicações em Java, reforçando a lógica de programação e a manipulação de objetos.
 
 ### Crud_func
 
-A pasta Crud_func contém um projeto de CRUD de funcionários totalmente funcional, executado por meio do terminal do usuário.
+Esta pasta contém um CRUD completo de funcionários, executado via console, aplicando conceitos de POO e lógica de programação.
 
-As funcionalidades implementadas incluem:  
-- Cadastro de funcionários  
-- Listagem de funcionários  
-- Atualização de dados de funcionários  
-- Remoção de funcionários  
-- Menu interativo no terminal  
+**Funcionalidades implementadas:**
 
-Este projeto aplica de forma prática conceitos fundamentais da linguagem Java, como Programação Orientada a Objetos, estruturas de controle, uso de coleções, organização de código e interação com o usuário via console.
+- Cadastro de funcionários com ID, nome, CPF, cargo e status ativo/inativo  
+- Listagem de funcionários em tabela no console  
+- Atualização de dados de um funcionário existente  
+- Exclusão de funcionários  
+- Menu interativo para navegação fácil pelo console  
+
+Este projeto aplica de forma prática conceitos fundamentais de Java, como:
+
+- POO (classes, objetos, métodos)  
+- Estruturas de controle (if, switch, loops)  
+- Coleções e arrays  
+- Interação com o usuário via console  
 
 ### out
 
@@ -54,25 +68,14 @@ Diretório gerado automaticamente pelo ambiente de desenvolvimento, contendo arq
 ### Pré-requisitos
 
 - Java Development Kit (JDK) versão 8 ou superior  
-- Uma IDE Java (IntelliJ IDEA, Eclipse ou VS Code) ou terminal configurado com Java  
+- IDE Java (IntelliJ IDEA, Eclipse, VS Code) ou terminal configurado com Java  
 
-A execução dos projetos pode ser realizada via IDE ou diretamente pelo terminal. O nome da classe principal pode variar de acordo com o projeto.
+### Execução
 
-## Objetivo do Repositório
+```bash
+# 1. Abra a pasta do projeto na IDE ou terminal
+# 2. Compile os arquivos .java
+javac src/*.java
 
-Os principais objetivos deste repositório são:  
-- Praticar lógica de programação utilizando Java  
-- Consolidar conceitos de Programação Orientada a Objetos  
-- Desenvolver um CRUD funcional em ambiente de console  
-- Simular aplicações reais durante o processo de aprendizado  
-
-## Tecnologias Utilizadas
-
-- Java  
-- Programação Orientada a Objetos  
-- Execução via terminal  
-
-## Autor
-
-Edgar Henrique  
-Bootcamp Java
+# 3. Execute a classe principal correspondente
+java src.Main
