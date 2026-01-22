@@ -1,78 +1,86 @@
-# Bootcamp Java
+# Atividades de POO - Java Console
 
-Este repositório contém as atividades práticas desenvolvidas durante um Bootcamp de Java, com foco no aprendizado da linguagem, Programação Orientada a Objetos (POO) e aplicação prática por meio de um projeto CRUD executado via terminal.
+Este projeto contém **três exercícios de Programação Orientada a Objetos (POO)** desenvolvidos em **Java**, todos executados via **console**.  
+O sistema permite a criação e manipulação de objetos de diferentes classes: `Pessoa`, `JogadorFute` e `Elevador`.
 
-O objetivo principal deste repositório é consolidar os conceitos fundamentais da linguagem Java por meio de exercícios e projetos práticos desenvolvidos ao longo do bootcamp.
+---
 
-## Estrutura do Repositório
+## Funcionalidades
 
-O repositório está organizado da seguinte forma:
+### 1. Cadastro de Pessoa
+- Permite registrar uma pessoa com os seguintes dados:
+  - Nome
+  - Data de nascimento (ano, mês e dia)
+  - Altura
+- Calcula e exibe informações relevantes sobre a pessoa (por exemplo, idade e dados formatados).  
 
-```text
-Bootcamp_java/
-├── Atv_poo/
-├── Crud_func/
-├── out/
-└── README.md
-```
+### 2. Cadastro de Jogador de Futebol
+- Permite registrar um jogador com os seguintes dados:
+  - Nome
+  - Posição (zagueiro, goleiro, meio-campo, atacante)
+  - Data de nascimento (ano, mês, dia)
+  - Nacionalidade
+  - Altura e peso
+- Exibe todas as informações do jogador formatadas no console.  
 
-## Descrição das Pastas
+### 3. Controle de Elevador
+- Simula o funcionamento de um elevador em um prédio:
+  - Inicializa capacidade máxima e número de andares
+  - Permite:
+    - Entrar pessoas
+    - Sair pessoas
+    - Subir e descer andares
+    - Exibir status atual (andar e quantidade de pessoas)
+- Garante que a capacidade máxima não seja ultrapassada e que o elevador não passe dos limites de andares.
 
-### Atv_poo
+---
 
-A pasta Atv_poo contém atividades voltadas especificamente para o estudo de Programação Orientada a Objetos em Java.
+## Tecnologias utilizadas
 
-Os principais conceitos abordados incluem:  
-- Criação e utilização de classes e objetos  
-- Encapsulamento  
-- Construtores  
-- Métodos  
-- Organização e estruturação do código  
-- Boas práticas iniciais em Programação Orientada a Objetos  
+| Tecnologia | Uso no projeto |
+|------------|----------------|
+| **Java** | Linguagem principal para lógica e POO. |
+| **Scanner** | Para leitura de entradas do usuário via console. |
+| **LocalDate** | Para manipulação de datas (data de nascimento de pessoas e jogadores). |
+| **POO (Classes e Objetos)** | Representação de `Pessoa`, `JogadorFute` e `Elevador`. |
 
-Essas atividades têm como finalidade fortalecer a base conceitual necessária para o desenvolvimento de aplicações em Java.
+---
 
-### Crud_func
+## Estrutura do projeto
 
-A pasta Crud_func contém um projeto de CRUD de funcionários totalmente funcional, executado por meio do terminal do usuário.
+Atv_poo/
+├─ src/
+│ ├─ Main.java # Classe principal com menus e chamadas para cada exercício
+│ ├─ Pessoa.java # Classe Pessoa com atributos, construtor e método de exibição
+│ ├─ JogadorFute.java # Classe JogadorFute com atributos e métodos
+│ └─ Elevador.java # Classe Elevador com métodos de controle de capacidade e andares
 
-As funcionalidades implementadas incluem:  
-- Cadastro de funcionários  
-- Listagem de funcionários  
-- Atualização de dados de funcionários  
-- Remoção de funcionários  
-- Menu interativo no terminal  
 
-Este projeto aplica de forma prática conceitos fundamentais da linguagem Java, como Programação Orientada a Objetos, estruturas de controle, uso de coleções, organização de código e interação com o usuário via console.
+- **Main.java**: Contém o menu principal, seleção de atividades e chamadas para cada exercício.  
+- **Pessoa.java**: Representa uma pessoa, com atributos como nome, data de nascimento e altura, e métodos para exibir dados.  
+- **JogadorFute.java**: Representa um jogador de futebol, com atributos de posição, nacionalidade, altura, peso e métodos de exibição.  
+- **Elevador.java**: Controla o funcionamento de um elevador, com atributos de capacidade, andar atual, total de andares e pessoas presentes.
 
-### out
+---
 
-Diretório gerado automaticamente pelo ambiente de desenvolvimento, contendo arquivos compilados do projeto.
+## Como usar
 
-## Como Executar os Projetos
+1. Abra o projeto em uma IDE Java (Eclipse, IntelliJ, NetBeans, etc.) ou terminal.  
+2. Compile todos os arquivos `.java`:
 
-### Pré-requisitos
+```bash
+javac src/*.java
+Execute o programa:
 
-- Java Development Kit (JDK) versão 8 ou superior  
-- Uma IDE Java (IntelliJ IDEA, Eclipse ou VS Code) ou terminal configurado com Java  
+java src.Main
+Navegue pelo menu principal digitando o número da opção desejada:
 
-A execução dos projetos pode ser realizada via IDE ou diretamente pelo terminal. O nome da classe principal pode variar de acordo com o projeto.
+1: Questão Pessoa
 
-## Objetivo do Repositório
+2: Questão Jogador de Futebol
 
-Os principais objetivos deste repositório são:  
-- Praticar lógica de programação utilizando Java  
-- Consolidar conceitos de Programação Orientada a Objetos  
-- Desenvolver um CRUD funcional em ambiente de console  
-- Simular aplicações reais durante o processo de aprendizado  
+3: Questão Elevador
 
-## Tecnologias Utilizadas
+0: Finalizar programa
 
-- Java  
-- Programação Orientada a Objetos  
-- Execução via terminal  
-
-## Autor
-
-Edgar Henrique  
-Bootcamp Java
+Siga as instruções no console para inserir dados e interagir com cada exercício.
