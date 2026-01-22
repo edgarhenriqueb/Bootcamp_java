@@ -1,78 +1,83 @@
-# Bootcamp Java
+# CRUD de Funcionários - Console Java
 
-Este repositório contém as atividades práticas desenvolvidas durante um Bootcamp de Java, com foco no aprendizado da linguagem, Programação Orientada a Objetos (POO) e aplicação prática por meio de um projeto CRUD executado via terminal.
+Este projeto é um **CRUD (Create, Read, Update, Delete)** desenvolvido em **Java**, funcionando no **console**. Ele permite cadastrar, consultar, atualizar e excluir funcionários diretamente no terminal, com um limite máximo de 100 registros.
 
-O objetivo principal deste repositório é consolidar os conceitos fundamentais da linguagem Java por meio de exercícios e projetos práticos desenvolvidos ao longo do bootcamp.
+O sistema utiliza **arrays** para armazenar os funcionários durante a execução do programa e garante funcionalidades básicas de validação, como **IDs únicos** e formatação de **CPF**.
 
-## Estrutura do Repositório
+---
 
-O repositório está organizado da seguinte forma:
+## Funcionalidades
 
-```text
-Bootcamp_java/
-├── Atv_poo/
-├── Crud_func/
-├── out/
-└── README.md
-```
+- **Cadastrar funcionário:**  
+  - Solicita ID, nome, CPF, status (ativo/inativo) e cargo (somente se ativo).  
+  - ID deve ser único; duplicatas não são permitidas.  
+  - CPF é formatado automaticamente no padrão `000.000.000-00`.  
 
-## Descrição das Pastas
+- **Consultar funcionários:**  
+  - Exibe todos os funcionários cadastrados no console.  
+  - Mostra todos os campos: ID, nome, CPF, cargo e status.  
 
-### Atv_poo
+- **Atualizar funcionário:**  
+  - Permite alterar qualquer informação de um funcionário existente, usando o ID como referência.  
+  - Atualiza nome, CPF, status e cargo.  
 
-A pasta Atv_poo contém atividades voltadas especificamente para o estudo de Programação Orientada a Objetos em Java.
+- **Excluir funcionário:**  
+  - Remove um funcionário do array pelo ID.  
+  - Ajusta a lista para não deixar espaços vazios no array.  
 
-Os principais conceitos abordados incluem:  
-- Criação e utilização de classes e objetos  
-- Encapsulamento  
-- Construtores  
-- Métodos  
-- Organização e estruturação do código  
-- Boas práticas iniciais em Programação Orientada a Objetos  
+- **Interface simples de menu:**  
+  - Navegação por opções numeradas no console:  
+    1. Cadastrar  
+    2. Consultar  
+    3. Atualizar  
+    4. Excluir  
+    0. Sair  
 
-Essas atividades têm como finalidade fortalecer a base conceitual necessária para o desenvolvimento de aplicações em Java.
+---
 
-### Crud_func
+## Tecnologias utilizadas
 
-A pasta Crud_func contém um projeto de CRUD de funcionários totalmente funcional, executado por meio do terminal do usuário.
+| Tecnologia | Uso no projeto |
+|------------|----------------|
+| **Java** | Linguagem de programação principal para lógica do CRUD. |
+| **Scanner** | Leitura de entradas do usuário via console. |
+| **Array** | Armazena até 100 funcionários durante a execução do programa. |
 
-As funcionalidades implementadas incluem:  
-- Cadastro de funcionários  
-- Listagem de funcionários  
-- Atualização de dados de funcionários  
-- Remoção de funcionários  
-- Menu interativo no terminal  
+---
 
-Este projeto aplica de forma prática conceitos fundamentais da linguagem Java, como Programação Orientada a Objetos, estruturas de controle, uso de coleções, organização de código e interação com o usuário via console.
+## Estrutura do projeto
 
-### out
+Crud_func/
+├─ src/
+│ ├─ Main.java # Classe principal com menu e lógica do CRUD
+│ └─ Funcionario.java # Classe modelo com atributos e métodos de exibição
 
-Diretório gerado automaticamente pelo ambiente de desenvolvimento, contendo arquivos compilados do projeto.
 
-## Como Executar os Projetos
+- **Main.java**: Contém o menu, interação com o usuário e métodos de CRUD (cadastrar, consultar, atualizar, excluir).  
+- **Funcionario.java**: Classe que representa um funcionário, com atributos `id`, `nome`, `cpf`, `ativo` e `cargo`, além de métodos getters, setters e exibição formatada.
 
-### Pré-requisitos
+---
 
-- Java Development Kit (JDK) versão 8 ou superior  
-- Uma IDE Java (IntelliJ IDEA, Eclipse ou VS Code) ou terminal configurado com Java  
+## Como usar
 
-A execução dos projetos pode ser realizada via IDE ou diretamente pelo terminal. O nome da classe principal pode variar de acordo com o projeto.
+1. Abra o projeto em uma IDE Java (Eclipse, IntelliJ, NetBeans, etc.) ou terminal.  
+2. Compile os arquivos `.java`. Por exemplo:
 
-## Objetivo do Repositório
+```bash
+javac src/*.java
+Execute o programa:
 
-Os principais objetivos deste repositório são:  
-- Praticar lógica de programação utilizando Java  
-- Consolidar conceitos de Programação Orientada a Objetos  
-- Desenvolver um CRUD funcional em ambiente de console  
-- Simular aplicações reais durante o processo de aprendizado  
+java src.Main
+Navegue pelo menu digitando o número da opção desejada:
 
-## Tecnologias Utilizadas
+1: Cadastrar funcionário
 
-- Java  
-- Programação Orientada a Objetos  
-- Execução via terminal  
+2: Consultar funcionários
 
-## Autor
+3: Atualizar funcionário
 
-Edgar Henrique  
-Bootcamp Java
+4: Excluir funcionário
+
+0: Sair do sistema
+
+Siga as instruções no console para inserir dados.
