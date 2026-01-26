@@ -1,51 +1,64 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Produto;
+import com.example.demo.repository.ProdutoRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {
 
-    private List<Produto> produtos = new ArrayList<>();
-    private Long proximoId = 1L;
+    private final ProdutoRepository repository;
 
-    // buscar /produtos em uma lista geral
+    public ProdutoController(ProdutoRepository repository) {
+        this.repository = repository;
+    }
+
+    //função de listar todos os produtos
     @GetMapping
     public List<Produto> listar() {
-        return produtos;
+        return repository.findAll();
     }
 
-    // buscar pelo /produtos/utilizando o {id}
+    // função de buscar produto por id
     @GetMapping("/{id}")
     public Produto buscarPorId(@PathVariable Long id) {
-        return produtos.stream()
-                .filter(p -> p.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+        return repository.findById(id).orElse(null);
     }
 
-    // adicionar os /produtos
+    //função de adicionar produto
     @PostMapping
     public Produto adicionar(@RequestBody Produto produto) {
-        produto.setId(proximoId++);
-        produtos.add(produto);
-        return produto;
+        return repository.save(produto);
     }
 
-    // remoção de /produtos por meio do /{id}
+    // função de atualizar o produto
+    @PutMapping("/{id}")
+    public Produto atualizar(@PathVariable Long id,
+                             @RequestBody Produto produtoAtualizado) {
+
+        return repository.findById(id).map(produto -> {
+            produto.setNome(produtoAtualizado.getNome());
+            produto.setPreco(produtoAtualizado.getPreco());
+            return repository.save(produto);
+        }).orElse(null);
+    }
+
+    // remover produto
     @DeleteMapping("/{id}")
     public String remover(@PathVariable Long id) {
-        boolean removido = produtos.removeIf(p -> p.getId().equals(id));
-        return removido ? "Produto removido com sucesso" : "Produto não encontrado";
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return "Produto removido com sucesso";
+        }
+        return "Produto não encontrado";
     }
 
-    // Ação extra para validação de que a api está rodando
+    // teste de funcionamento
     @GetMapping("/hello")
     public String hello() {
-        return "API inicial de Produtos está rodando com Spring Boot com sucesso";
+        return "API de Produtos com JPA rodando com sucesso";
     }
 }
