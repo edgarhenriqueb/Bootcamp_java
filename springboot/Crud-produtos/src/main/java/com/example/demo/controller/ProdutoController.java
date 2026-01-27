@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Produto;
-import com.example.demo.repository.ProdutoRepository;
+import com.example.demo.dto.ProdutoRequestDTO;
+import com.example.demo.dto.ProdutoResponseDTO;
+import com.example.demo.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,55 +11,41 @@ import java.util.List;
 @RequestMapping("/produtos")
 public class ProdutoController {
 
-    private final ProdutoRepository repository;
+    private final ProdutoService service;
 
-    public ProdutoController(ProdutoRepository repository) {
-        this.repository = repository;
+    public ProdutoController(ProdutoService service) {
+        this.service = service;
     }
 
-    //função de listar todos os produtos
     @GetMapping
-    public List<Produto> listar() {
-        return repository.findAll();
+    public List<ProdutoResponseDTO> listar() {
+        return service.listar();
     }
 
-    // função de buscar produto por id
     @GetMapping("/{id}")
-    public Produto buscarPorId(@PathVariable Long id) {
-        return repository.findById(id).orElse(null);
+    public ProdutoResponseDTO buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
     }
 
-    //função de adicionar produto
     @PostMapping
-    public Produto adicionar(@RequestBody Produto produto) {
-        return repository.save(produto);
+    public ProdutoResponseDTO adicionar(@RequestBody ProdutoRequestDTO dto) {
+        return service.salvar(dto);
     }
 
-    // função de atualizar o produto
     @PutMapping("/{id}")
-    public Produto atualizar(@PathVariable Long id,
-                             @RequestBody Produto produtoAtualizado) {
-
-        return repository.findById(id).map(produto -> {
-            produto.setNome(produtoAtualizado.getNome());
-            produto.setPreco(produtoAtualizado.getPreco());
-            return repository.save(produto);
-        }).orElse(null);
+    public ProdutoResponseDTO atualizar(@PathVariable Long id,
+                                        @RequestBody ProdutoRequestDTO dto) {
+        return service.atualizar(id, dto);
     }
 
-    // remover produto
     @DeleteMapping("/{id}")
     public String remover(@PathVariable Long id) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-            return "Produto removido com sucesso";
-        }
-        return "Produto não encontrado";
+        service.remover(id);
+        return "Produto removido com sucesso";
     }
 
-    // teste de funcionamento
     @GetMapping("/hello")
     public String hello() {
-        return "API de Produtos com JPA rodando com sucesso";
+        return "API de Produtos com DTO e Service rodando com sucesso";
     }
 }
