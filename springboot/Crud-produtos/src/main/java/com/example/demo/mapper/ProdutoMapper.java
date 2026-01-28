@@ -7,7 +7,6 @@ import com.example.demo.model.Produto;
 public class ProdutoMapper {
 
     private ProdutoMapper() {
-        // impede instanciação (classe utilitária)
     }
 
     public static Produto toEntity(ProdutoRequestDTO dto) {
