@@ -1,0 +1,7 @@
+DELETE FROM PRODUTO;
+ALTER TABLE PRODUTO ALTER COLUMN ID RESTART WITH 1;
+
+
+http://localhost:8080/produtos
+
+http://localhost:8080/produtos?desconto=true
