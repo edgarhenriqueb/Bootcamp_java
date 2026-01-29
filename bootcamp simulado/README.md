@@ -30,7 +30,7 @@ Além disso também deve utilizar os gets e setter corretos como os abaixo:
 
 7)A anotação na qual define um controller rest é o @RestController
 
-8)Define o mapeamento de URLs para métodos ou classes, associando rotas HTTP a handlers do controller.
+8)Define o mapeamento de URLs e caminhos para métodos ou classes, associando rotas HTTP a handlers do controller.(exemplo pratico:http://localhost:8080/produtos)
 
 9)O Controller  está acessando diretamente o Repository, violando o princípio de separação de camadas.O correto nessa ocasião seria usar uma Service Layer.
 
